@@ -10,6 +10,7 @@ fn main() {
         //mutable borrow
     account.withdraw(10.1);
 
+    account.check_balance();
 
 }
 
@@ -21,7 +22,9 @@ struct BankAccount {
 impl BankAccount {
     fn withdraw(&mut self, amount: f64) {
         println!("WIthdrawing {} from {} 's account", amount, self.owner);
+        
         self.balance -= amount;
+        
     }
     fn check_balance(&self) {
         println!("{}'s account balance is {}", self.owner, self.balance)
